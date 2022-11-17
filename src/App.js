@@ -22,6 +22,11 @@ class App extends Component {
         const filteredRobots = this.state.robots.filter( robot => robot.name.toLowerCase().includes( this.state.searchfield.toLocaleLowerCase() ));
         return (
             <main className="tc">
+                {
+                    fetch("https://my-json-server.typicode.com/smokezii/robofriends-v2")
+                    .then(response => response.json())
+                    .then(json => console.log(json))
+                }
                 <h1>RoboFriends</h1>
                 <SearchBox searchInput={this.onSreachInput} />
                 <CardList robots={filteredRobots}/>
